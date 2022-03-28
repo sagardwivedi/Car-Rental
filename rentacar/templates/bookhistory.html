@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>Car Rental</title>
+   
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static  'css/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static  'css/owl.theme.default.min.css' %}">
+   
+        <!-- MAIN CSS -->
+       
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+   </head>
+   
+
+   <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+    <!-- PRE LOADER -->
+    <section class="preloader">
+         <div class="spinner">
+              <span class="spinner-rotate"></span>
+         </div>
+    </section>
+
+
+    <!-- MENU -->
+    <section class="navbar custom-navbar navbar-fixed-top"  role="navigation">
+         <div class="container">
+
+              <div class="navbar-header">
+                   <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                   </button>
+
+                   <!-- lOGO TEXT HERE -->
+                   <a href="#" class="navbar-brand">Car Rental Website</a>
+              </div>
+
+              <!-- MENU LINKS -->
+              <div class="collapse navbar-collapse">
+                   <ul class="nav navbar-nav navbar-nav-first">
+                        <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'fleet' %}">Fleet</a></li>
+                        <li><a href="{% url 'offers' %}">Offers</a></li>
+                        <li class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                  aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+
+                             <ul class="dropdown-menu">
+                                  <li><a href="blog-posts.html">Blog</a></li>
+                                  <li><a href="about-us.html">About Us</a></li>
+                                  <li><a href="team.html">Team</a></li>
+                                  <li><a href="testimonials.html">Testimonials</a></li>
+                                  <li><a href="terms.html">Terms</a></li>
+                             </ul>
+                        </li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        
+                        <a href="{% url 'booking' %}"><li style="margin-top: 26px; float:right;">
+                          
+                            Hello, </span>{{ user.username | default:"Guest" }}
+
+                        </li></a>
+
+                        <li >
+
+                             {% if user.is_authenticated %}
+                             {% if user.is_superuser %}
+                             <a href="/admin/">Admin</a>
+                             </li>
+                             {% endif %}
+                        <li>
+                             <a href="{% url 'logout' %}">Logout</a>
+                             {% else %}
+                             <a href="{% url 'login' %}">Login</a>
+                             </li>
+                             <li >
+                             <a href="{% url 'signup' %}">Sign Up</a>
+                             {% endif %}
+
+                        </li>
+                   </ul>
+
+              </div>
+
+         </div>
+    </section>
+    <h1>spaciba</h1>
+
+    {% for dt in booking %}
+    <h1>{{dt.pickup}}</h1>
+    {% endfor %}
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static  'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/smoothscroll.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

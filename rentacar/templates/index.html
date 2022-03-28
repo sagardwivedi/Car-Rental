@@ -1,0 +1,295 @@
+{% load static %}
+{% load bootstrap_icons %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+     <title>Car Rental</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+     <link rel="stylesheet" href="{% static  'css/owl.carousel.css' %}">
+     <link rel="stylesheet" href="{% static  'css/owl.theme.default.min.css' %}">
+
+     <!-- MAIN CSS -->
+    
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+          </div>
+     </section>
+
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top"  role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="#" class="navbar-brand">Car Rental Website</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                         <li><a href="{% url 'fleet' %}">Fleet</a></li>
+                         <li><a href="{% url 'offers' %}">Offers</a></li>
+                         <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                         
+                         <a href="#"><li style="margin-top: 26px; float:right;">
+                           
+                             Hello, </span>{{ user.username | default:"Guest" }}
+
+                         </li></a>
+
+                         <li >
+
+                              {% if user.is_authenticated %}
+                              {% if user.is_superuser %}
+                              <a href="/admin/">Admin</a>
+                              </li>
+                              {% endif %}
+                         <li>
+                              <a href="{% url 'logout' %}">Logout</a>
+                              {% else %}
+                              <a href="{% url 'login' %}">Login</a>
+                              </li>
+                              <li >
+                              <a href="{% url 'signup' %}">Sign Up</a>
+                              {% endif %}
+
+                         </li>
+                    </ul>
+
+               </div>
+
+          </div>
+     </section>
+
+     <!-- HOME -->
+     <section id="home">
+          <div class="row">
+               <div class="owl-carousel owl-theme home-slider">
+                    <div class="item item-first">
+                         <div class="caption">
+                              <div class="container">
+                                   <div class="col-md-6 col-sm-12">
+                                        <h1>Lorem ipsum dolor sit amet.</h1>
+                                        <h3>Voluptas dignissimos esse, explicabo cum fugit eaque, perspiciatis quia ab
+                                             nisi sapiente delectus eiet.</h3>
+                                        <a href="{% url 'fleet' %}" class="section-btn btn btn-default">Fleet</a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="item item-second">
+                         <div class="caption">
+                              <div class="container">
+                                   <div class="col-md-6 col-sm-12">
+                                        <h1>Distinctio explicabo vero animi culpa facere voluptatem.</h1>
+                                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, excepturi.
+                                        </h3>
+                                        <a href="{% url 'fleet' %}" class="section-btn btn btn-default">Fleet</a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="item item-third">
+                         <div class="caption">
+                              <div class="container">
+                                   <div class="col-md-6 col-sm-12">
+                                        <h1>Efficient Learning Methods</h1>
+                                        <h3>Nam eget sapien vel nibh euismod vulputate in vel nibh. Quisque eu ex eu
+                                             urna venenatis sollicitudin ut at libero.</h3>
+                                        <a href="{% url 'fleet' %}" class="section-btn btn btn-default">Fleet</a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <main>
+          <section>
+               <div class="container">
+                    <div class="row">
+                         <div class="col-md-12 col-sm-12">
+                              <div class="text-center">
+                                   <h2>About us</h2>
+
+                                   <br>
+
+                                   <p class="lead">Enterprise Rent-A-Car is an ongoing success story. Our guiding principles, and humble beginning, revolve around personal honesty and integrity. We believe in strengthening our communities one at a time. Serving our customers as if they were our family. And rewarding hard work. These things are as true today as they were when we were founded in 1957.
+
+                                        Today, our extensive network, fleet and range of services position Enterprise as part of the largest transportation solutions provider in the world</p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          <section>
+               <div class="container">
+                    <div class="row">
+                         <div class="col-md-12 col-sm-12">
+                              <div class="section-title text-center">
+                                   <h2>Offers <small>Lorem ipsum dolor sit amet.</small></h2>
+                              </div>
+                         </div>
+
+                         <div class="col-md-4 col-sm-6">
+                              <div class="team-thumb">
+                                   <div class="team-image">
+                                        <img src="{% static 'images/offer-1-720x480.jpg' %}" class="img-responsive"
+                                             alt="">
+                                   </div>
+                                   <div class="team-info">
+                                        <h3>FAMILY CARS</h3>
+
+                                        <p class="lead"><small>from</small> <strong>$120</strong> <small>per
+                                                  weekend</small></p>
+
+                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta
+                                             voluptas quia dolor fuga odit.</span>
+                                   </div>
+                                   <div class="team-thumb-actions">
+                                        <a href="{% url 'offers' %}" class="section-btn btn btn-primary btn-block">View
+                                             Offer</a>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="col-md-4 col-sm-6">
+                              <div class="team-thumb">
+                                   <div class="team-image">
+                                        <img src="{% static 'images/offer-2-720x480.jpg' %}" class="img-responsive"
+                                             alt="">
+                                   </div>
+                                   <div class="team-info">
+                                        <h3>LUXURY & PRESTIGE CARS</h3>
+
+                                        <p class="lead"><small>from</small> <strong>$99</strong> <small>per
+                                                  weekend</small></p>
+
+                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non beatae
+                                             soluta, placeat vitae cum maxime culpa itaque minima.</span>
+                                   </div>
+                                   <div class="team-thumb-actions">
+                                        <a href="offers.html" class="section-btn btn btn-primary btn-block">View
+                                             Offer</a>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="col-md-4 col-sm-6">
+                              <div class="team-thumb">
+                                   <div class="team-image">
+                                        <img src="{% static  'images/offer-3-720x480.jpg' %}" class="img-responsive"
+                                             alt="">
+                                   </div>
+                                   <div class="team-info">
+                                        <h3>TOP SELLERS</h3>
+
+                                        <p class="lead"><small>from</small> <strong>$110</strong> <small>per
+                                                  weekend</small></p>
+
+                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt nisi
+                                             quia aspernatur, harum facere delectus saepe enim?</span>
+                                   </div>
+                                   <div class="team-thumb-actions">
+                                        <a href="offers.html" class="section-btn btn btn-primary btn-block">View
+                                             Offer</a>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+         
+     </main>
+
+     
+
+     <!-- FOOTER -->
+     <footer id="footer">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-6" style="margin-left:9%;">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2>Headquarter</h2>
+                              </div>
+                              <address>
+                                   <p>KC College  <br>Churchgate,400005 </p>
+                              </address>
+
+                              <div class="copyright-text">
+                                   <p>Copyright &copy; 2022 Group 5</p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2>Contact Info</h2>
+                              </div>
+                              <address>
+                                   <p>+91 9545786648</p>
+                                   <p><a href="mailto:contact@company.com">group5@gmail.com</a></p>
+                              </address>
+
+                              <div class="footer_menu">
+                                   <h2>Quick Links</h2>
+                                   <ul>
+                                        <li><a href="{% url 'index' %}">Home</a></li>
+                                        <li><a href="{% url 'fleet' %}">Fleet</a></li>
+                                        <li><a href="{% url 'offers'%}">Offers</a></li>
+                                        <li><a href="{% url 'contact'%}">Contact Us</a></li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div>
+
+            
+
+               </div>
+          </div>
+     </footer>
+
+     <!-- SCRIPTS -->
+     <script src="{% static 'js/jquery.js' %}"></script>
+     <script src="{% static  'js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+     <script src="{% static 'js/smoothscroll.js' %}"></script>
+     <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>
